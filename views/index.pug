@@ -1,0 +1,36 @@
+doctype html
+html
+    head
+        meta(
+            name='viewport'
+            content='width=device-width, initial-scale=1, shrink-to-fit=no'
+        )
+        meta(
+            charset='utf-8'
+        )
+        title= title
+        link(
+            rel='stylesheet'
+            href='/css/bootstrap.min.css'
+        )
+    
+    body
+        h2= message
+        block content
+            div.container-fluid
+                div.container.pt-5
+                    div.row
+                        each val in ["A", "B", "C", "D", "E"]
+                            div.col
+                                form(
+                                    action=`/events/${val}`
+                                    method="post"
+                                )
+                                    button.p-4(
+                                        type="submit"
+                                        class="btn btn-primary"
+                                    )
+                                        span.display-5= `Event ${val}`  
+
+    link(rel='stylesheet', href='/js/jquery.min.js')
+    link(rel='stylesheet', href='/js/bootstrap.bundle.min.js')
